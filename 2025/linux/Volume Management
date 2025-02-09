@@ -1,1 +1,34 @@
-here is the solution of task 1
+                                    ### Volume Management & Disk Usage ###
+
+## we are learning Volume management in AWS cloud. There is a EC2 isntance present and we create 3 EBS (Elastic Block Storage) and mount the EBS in EC2.
+   First we create an EC2(8 GB) instance and also create 3 EBS(6 GB,7 GB,10 GB) volumes. Now select each EBS and go to action and attach every EBS volume with EC2 instance.
+
+# To show the volumes are attached or not
+   lsblk                          ## list the block
+
+# NOw if you want to useable the EBS volumes first you need to convert the volumes into physical volume, then need to create volume group and then we create a logical volume,
+  where we can add and reduce volume desirely from the volume group. This things are maintain by LVM
+  To run commands in LVM we need sudo access or we can first login into root user (sudo su) then press lvm to enter the lvm then
+   
+
+  pvcreate /dev/nvme1n1 /dev/nvme2n1             ## nvme1n1, nvme2n1 = EBS volume name and /dev/nvme1n1 & /dev/nvme2n1 is the extended device name
+  pvs                                            ## to check the physical volume
+
+  vgcreate ipl /dev/nvme1n1 /dev/nvme2n1         ## ipl = volume group name , /dev/nvme1n1 /dev/nvme2n1 are the physical volumes to create the volume group
+  vgs                                            ## To show volume group
+
+  lvctrteate -L 9G -n mumbai_indians ipl         ## mumbai_indians = Logical volume name,   ipl = Volume group 9G = logical volume size
+  lvs                                            ## To show logical volume
+  lvextend -L +2G /dev/ipl/mumbai_indians        ## for extend logical volume  2G = extend size
+ ## Now lvm work done.
+## Now we mount the logical volumes. First need to create a directory to mount the logical volume. Then need to format the logical volume now we can mount the logical volume
+  mkdir /mnt/wankhere                            ## /mnt/wankere is the directory where the logical volume mount
+  mkfs.ext4 /dev/ipl/mumbai_indians              ## format the logical volume,  /dev/ipl/mumbai_indians  = Logical volume path
+  mount /dev/ipl/mumbai_indians  /dev/wankhere   ## /dev/wankhere = location where logical volume mount
+  lsblk or df -h                                 ## to check mount position
+
+## If you want to EBS disk volume add with EC2 instance directly, First create a directory for mount location then format the disk and then mount the disk
+   mkdir /mnt/disk_mount                         ## create mount location
+   mkfs -t ext4 /dev/nvme3n1                     ## to format the dis volume , /dev/nvme3n1 = the disk volume which will mount
+   mount /dev/nvme3n1 /dev/disk_mount            ## For mount the disk volume. 
+ 	
