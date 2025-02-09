@@ -1,0 +1,11 @@
+                    ### File & Directory Permissions ###
+
+## Create devops_workspace directory and a file project_notes.txt.
+   mkdir devops_workspace
+   touch project_notes.txt
+## set permission for both owner can edit, group can read, others have no access.
+   chmod 640 devops_workspace
+   chmod 640 project_notes.txt
+## change ownership of project_notes.txt file to another user
+   sudo chown user2 project_notes.txt                            ## where user2 is an another user 
+ 
