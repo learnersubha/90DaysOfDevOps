@@ -23,6 +23,9 @@ awk '/authentication failure/ {if ($1 == "Jun" && ($2 == "30")) print $1,$2,$3,$
 sed "s/user/username/g" demo.log                                                                ## for change user to username
 sed "s/rhost/ip address/g" demo.log                                                             ## for change rhost to ip address 
 
+ sed "s/user/username/g" practic.log | uniq -c                                                 ## nopw yoy can't show any common line.
+
+
 ## Now you can save the filterd file and mail to your developer
 
 
