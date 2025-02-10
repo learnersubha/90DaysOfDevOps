@@ -4,4 +4,21 @@ grep "check pass" practic.log                                                   
 awk '/error/ {print}' practic.log                                                               ## using awk command we are finding error string in the practic.log file.
 awk '/check/ {print}' practic.log                                                               ## using awk command we are finding check string in the practic.log file.
 awk '/check/ {print $1,$2,$3,$7,$8,$9}' practic.log                                             ## we are printing colume no 1,2,3,7,8,9 where the "check" string available within the practic.log file.
+awk '/authentication failure/{print}' practic.log | head                                        ## "authentication failure" is the filter and head show top 1o data from the filter log data
+awk '/authentication failure/{print}' practic.log | tail -n 5                                   ## tail -n 5 = this will show you last 5 data after filtering.
                                                                       
+## Now your developer team told you to give them Jun 30th authentication faliure data from the practic.log file, and developer team required only username and IP address
+# First we filter authentication faliure data from the log file
+awk '/authentication failure/{print}' practic.log
+# Secondly we are filtering only Jun data from the first filter file
+awk '/authentication failure/ {if ($1 == "Jun") print $1,$2,$3,$12,$13,$14}' practic.log 
+# Now we find only 30th date from our Jun filtered data
+awk '/authentication failure/ {if ($1 == "Jun" && ($2 == "30")) print $1,$2,$3,$12,$13,$14}' practic.log
+
+
+## Now we can see rhost is the IP address and user is the username on my filtered data we use sed command and changed rhost to IP address and user to username
+
+
+
+
+
