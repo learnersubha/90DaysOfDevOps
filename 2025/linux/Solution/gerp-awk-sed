@@ -13,10 +13,19 @@ awk '/authentication failure/{print}' practic.log
 # Secondly we are filtering only Jun data from the first filter file
 awk '/authentication failure/ {if ($1 == "Jun") print $1,$2,$3,$12,$13,$14}' practic.log 
 # Now we find only 30th date from our Jun filtered data
-awk '/authentication failure/ {if ($1 == "Jun" && ($2 == "30")) print $1,$2,$3,$12,$13,$14}' practic.log
+awk '/authentication failure/ {if ($1 == "Jun" && ($2 == "30")) print $1,$2,$3,$13,$14}' practic.log
 
 
 ## Now we can see rhost is the IP address and user is the username on my filtered data we use sed command and changed rhost to IP address and user to username
+# First filtered data transfer into a another log file which name is demo.log
+awk '/authentication failure/ {if ($1 == "Jun" && ($2 == "30")) print $1,$2,$3,$13,$14}' practic.log > demo.log
+# Now we use stream editor on the newly formed log file
+sed "s/user/username/g" demo.log                                                                ## for change user to username
+sed "s/rhost/ip address/g" demo.log                                                             ## for change rhost to ip address 
+
+## Now you can save the filterd file and mail to your developer
+
+
 
 
 
