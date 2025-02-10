@@ -28,6 +28,8 @@ sed "s/rhost/ip address/g" demo.log                                             
 
 ## Now you can save the filterd file and mail to your developer
 
+Here is the log file link :- https://github.com/logpai/loghub/blob/master/Linux/Linux_2k.log
+
 
 
 
