@@ -1,3 +1,7 @@
-grep "finding sting" filename               ## "finding string" = the string which you find in the file.
-grep "error" practic.log                    ## "error" = the string which you find in the log file, practic.log = the log file 
-grep "check pass" practic.log               ## "check pass" = the string which you find, practic.log = The log file
+grep "finding sting" filename                                                                   ## "finding string" = the string which you find in the file.
+grep "error" practic.log                                                                        ## "error" = the string which you find in the log file, practic.log = the log file. 
+grep "check pass" practic.log                                                                   ## "check pass" = the string which you find, practic.log = The log file.
+awk '/error/ {print}' practic.log                                                               ## using awk command we are finding error string in the practic.log file.
+awk '/check/ {print}' practic.log                                                               ## using awk command we are finding check string in the practic.log file.
+awk '/check/ {print $1,$2,$3,$7,$8,$9}' practic.log                                             ## we are printing colume no 1,2,3,7,8,9 where the "check" string available within the practic.log file.
+                                                                      
