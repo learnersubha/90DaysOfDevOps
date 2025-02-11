@@ -4,7 +4,7 @@
 read -p "Enter the username :" username
 password=$(sudo passwd $username)
 count=$(cat /etc/passwd | grep $username | wc | awk '{print $1}')
-if [ $count = 1 ];
+if [ $count == 1 ];
 then
         echo -e "Your password reset successfully\n$password"
 else
