@@ -9,6 +9,12 @@ read -p "enter the passwod :" password
 sudo useradd -m "$username"
 echo -e "$password\n$password" | sudo passwd "$username"
 echo "**************** user creation completed *********************"
+sudo userdel "$username"
+echo "user deleted"
+cat /etc/passwd | grep "$username" | wc
+echo "if the wc is 0 then user deleted"
+
+
 
 
 
