@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#This is a shell script which is used for create user
+#This is a shell script which is used for create user and then delete the user also
 
 
 echo "**************** creation of userstarted **********************"
