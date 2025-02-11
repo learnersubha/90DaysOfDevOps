@@ -2,10 +2,14 @@
 #
 #This is a shell script which is used for create user
 
-
+user_create ()
+{
 echo "**************** creation of userstarted **********************"
 read -p "enter the user name :" username
 read -p "enter the passwod :" password
 sudo useradd -m "$username"
 echo -e "$password\n$password" | sudo passwd "$username"
 echo "**************** user creation completed *********************"
+}
+user_create
+user_create
