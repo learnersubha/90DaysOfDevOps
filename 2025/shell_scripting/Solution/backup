@@ -8,4 +8,15 @@ timestamp=$(date '+%y-%m-%d-%H-%M-%S')                                   ## $tim
 zip -r "$destination/backup-$timestamp.zip" $sourc > /dev/null
 echo "Backup Completed"
                                                                                                                                                                                        
-                             
+## Now if you want to automate this process to take backup on daily basis then we user a tool call crontab
+first we enter in crontab with the below command
+crontab -e
+now we set crontab to take backup on daily basis and put our command, for example I put the command which I use for automate on daily basis
+m h  dom mon dow   command
+0 0 * * * sh /home/ubuntu/scripts/backup.sh /home/ubuntu/scripts /home/ubuntu/backup
+
+# sh = For run the shell script
+# /home/ubuntu/scripts/backup.sh = the shell script path
+# /home/ubuntu/scripts  = sourc path
+# /home/ubuntu/backup destination path
+
