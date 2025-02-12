@@ -2,10 +2,10 @@
 
 ## This shell script use for take periodic backup
 
-sourc=$1                                                    ## $1 = is the argument, here you put your sourc address
-destination=$2                                              ## $2 = is the argument, here you put your destination address
-timestamp=$(date '+%y-%m-%d-%H-%M-%S')                      ## $timestsmp = is the argument we create for unique backup folder name.
-zip -r "$destination/backup-$timestamp.zip" $sourc
+sourc=$1                                                                 ## $1 = is the argument, here you put your sourc address
+destination=$2                                                           ## $2 = is the argument, here you put your destination address
+timestamp=$(date '+%y-%m-%d-%H-%M-%S')                                   ## $timestsmp = is the argument we create for unique backup folder name.
+zip -r "$destination/backup-$timestamp.zip" $sourc > /dev/null
 echo "Backup Completed"
                                                                                                                                                                                        
                              
