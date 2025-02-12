@@ -2,7 +2,7 @@
 #
 #This is a shell script which is used for create user
 
-user_create ()
+user_create ()                                                                           
 {
 echo "**************** creation of userstarted **********************"
 read -p "enter the user name :" username
@@ -13,3 +13,6 @@ echo "**************** user creation completed *********************"
 }
 user_create
 user_create
+
+
+## ## User_create is the function we wrap the whole script in a function. now how many time we call the function we will create an user.
