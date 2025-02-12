@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## This shell script use for take periodic backup
+
+sourc=$1
+destination=$2
+timestamp=$(date '+%y-%m-%d-%H-%M-%S')
+zip -r "$destination/backup-$timestamp.zip" $sourc
+echo "Backup Completed"
+                                                                                                                                                                                       
+                             
