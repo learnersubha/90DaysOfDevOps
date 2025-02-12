@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# This shell scripts use for install any package.
+
+echo "++++++++++++++++++++ package installation in progress +++++++++++++++++"
+
+
+sudo apt-get install $1 -y > /dev/null
+
+echo "+++++++++++++++++++++++++++ package installed +++++++++++++++++++++++++"
+~                                                                                   
